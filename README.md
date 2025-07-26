@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Smith Kashyap – Full Stack & Mobile Developer Portfolio
 
-## Getting Started
+![GitHub Repo stars](https://img.shields.io/github/stars/smithkashyapdev/Portfolio-Mern-Mobile-Dev?style=social)
+![GitHub forks](https://img.shields.io/github/forks/smithkashyapdev/Portfolio-Mern-Mobile-Dev?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/smithkashyapdev/Portfolio-Mern-Mobile-Dev)
+![GitHub issues](https://img.shields.io/github/issues/smithkashyapdev/Portfolio-Mern-Mobile-Dev)
+![License](https://img.shields.io/github/license/smithkashyapdev/Portfolio-Mern-Mobile-Dev)
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15-blue?logo=nextdotjs)
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-4.1.0-38b2ac?logo=tailwindcss)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![AWS Lambda](https://img.shields.io/badge/AWS%20Lambda-Serverless-orange?logo=amazon-aws)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)
+
+> A modern and interactive developer portfolio showcasing my skills, projects, experience, and contact form powered by AWS Lambda, SES, and DynamoDB.
+
+---
+
+## 🧠 Features
+
+- ⚡ **Animated Hero** with tsParticles and Typing effect
+- 📁 **Projects Section** with horizontal carousel + gradient tech badges
+- 🧑‍💼 **Work Experience** in a beautiful zig-zag timeline view
+- 🔗 **About Section** with all social profiles
+- 📬 **Contact Form** with file upload using AWS Lambda + SES
+- 🛠️ **Serverless Backend**: Sends dynamic emails and stores inquiries in DynamoDB
+- 🧪 Built-in validation using **React Hook Form + Zod**
+- 🎨 Fully **Responsive Design** for all screen sizes
+- 💡 Powered by **Tailwind CSS 4**, **TypeScript**, and **Next.js 15 App Router**
+
+---
+
+## 📦 Tech Stack
+
+| Category       | Tools / Frameworks                                |
+|----------------|----------------------------------------------------|
+| **Frontend**   | React 19, Next.js 15, Tailwind CSS, Framer Motion |
+| **Forms**      | React Hook Form, Zod                              |
+| **Backend**    | AWS Lambda, SES, DynamoDB                         |
+| **Tooling**    | ESLint, Prettier, Husky, lint-staged, Plop        |
+| **Testing**    | Appium (Mobile), Jest, JUnit, Mocha               |
+| **Dev Tools**  | Redux DevTools, Flipper, VSCode                   |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Install
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/smithkashyapdev/Portfolio-Mern-Mobile-Dev.git
+cd Portfolio-Mern-Mobile-Dev
+npm install
