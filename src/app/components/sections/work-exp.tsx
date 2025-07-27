@@ -32,13 +32,14 @@ const WorkExperienceComponent = ({ experiences, id }: WorkProp) => {
               className="relative flex flex-col md:flex-row items-center justify-between gap-6"
             >
               <div className="absolute left-1/2 -translate-x-1/2 z-20 w-14 h-14 rounded-full border-4 border-blue-500 flex items-center justify-center shadow-lg">
-                <Image src={exp.icon} alt={`${exp.company} logo`} width={32} height={32} />
+                <Image src={exp.icon} alt={`${exp.company} logo`}
+                  fill
+                  className="rounded-3xl object-fill" />
               </div>
 
               <div
-                className={`p-[2px] rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 w-full md:w-[45%] mt-20 md:mt-0 ${
-                  isLeft ? 'md:ml-auto' : 'md:mr-auto'
-                }`}
+                className={`p-[2px] rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 w-full md:w-[45%] mt-20 md:mt-0 ${isLeft ? 'md:ml-auto' : 'md:mr-auto'
+                  }`}
               >
                 <div className="bg-[var(--foreground)] shadow-lg border border-gray-700 p-6 rounded-lg h-full">
                   <div className="mb-2">
@@ -47,7 +48,7 @@ const WorkExperienceComponent = ({ experiences, id }: WorkProp) => {
                     <p className="text-sm">{exp.duration}</p>
                   </div>
                   <div className="flex flex-wrap gap-2 mb-2">
-                    {exp.skill.split(',').map((skill,index) => {
+                    {exp.skill.split(',').map((skill, index) => {
                       const trimmed = skill.trim();
                       return (
                         <span

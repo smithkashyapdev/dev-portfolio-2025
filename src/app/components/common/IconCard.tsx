@@ -23,13 +23,13 @@ const Item = ({
   handleMouseLeave,
 }: IconCardProps) => {
   return (
-    <div
-      className="group relative flex flex-row items-center gap-2 border-b py-2 hover:bg-[#f0f0ff] hover:border-purple-400 hover:shadow-md transition-all duration-200 cursor-pointer select-none"
+    <div className="transition delay-150 duration-300 ease-in-out hover:-translate-y-2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 h-full"
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {enableSrc || disableSrc ? (
+       <div className="bg-[var(--foreground)] content-center text-center rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 w-full h-full">
+        {enableSrc || disableSrc ? (
         <Image
           src={(isHovered ? enableSrc : disableSrc) || ''}
           alt="Dot Dev Icon"
@@ -39,10 +39,11 @@ const Item = ({
         />
       ) : null}
       <span
-        className={`text-xl font-semibold text-${titleColor || ''} group-hover:text-purple-500 transition-colors duration-300`}
+        className={`text-2xl font-semibold text-${titleColor || ''} group-hover:text-purple-500 transition-colors duration-300`}
       >
         {title || 'Default Title'}
       </span>
+      </div>
     </div>
   );
 };

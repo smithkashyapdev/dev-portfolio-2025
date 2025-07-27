@@ -4,10 +4,12 @@ import ThemeToggle from '../common/ThemeToggle';
 import { Drawer, DrawerRef } from './Drawer';
 import { useCallback, useState } from 'react';
 import React from 'react';
+import { useTheme } from '@/app/context/ThemeContext';
 type headerProps = {
   title?: string;
 };
 const Header = ({ title }: headerProps) => {
+  const { theme } = useTheme();
   const drawerRef = React.useRef<DrawerRef>(null);
   const headerItems = [
     { title: '🧑‍💻 Home', link: '#home' },
@@ -30,8 +32,9 @@ const Header = ({ title }: headerProps) => {
           <Image
             src="/component-icon/icon_portfolio_2.svg"
             alt="Portfolio Icon"
-            width={24}
-            height={24}
+            width={0}
+            height={0}
+            className={`w-5 h-5 ${theme == 'light' ? 'invert' : ''}`}
           />
           <h3>{title}</h3>
         </div>
@@ -41,16 +44,18 @@ const Header = ({ title }: headerProps) => {
             <a
               href={link}
               key={index}
-              className="inline-block md:px-4 md:py-2 sm:px-2 sm:py-2 text-sm bg-blue-500  rounded hover:bg-blue-700 transition"
+              className={`inline-block md:px-4 md:py-2 sm:px-2 sm:py-2 text-sm  rounded transition ${theme == 'light' ? 'text-white bg-black hover:bg-blue-700' : 'text-black bg-white hover:bg-blue-700'}`}
             >
               {title}
             </a>
           ))}
-           <ThemeToggle />
+          <ThemeToggle />
         </div>
 
         <div className="block sm:hidden" onClick={openDrawer}>
-          <Image src="/icons/ic_burger.svg" alt="Burger Icon" width={24} height={24} />
+          <Image src="/icons/ic_burger.svg" alt="Burger Icon" width={0}
+            height={0}
+            className={`w-7 h-7 ${theme == 'light' ? 'invert' : ''}`} />
         </div>
       </nav>
 

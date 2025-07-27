@@ -1,13 +1,14 @@
 'use client';
+import { useTheme } from '@/app/context/ThemeContext';
 import { Project } from '@/app/types/DevData';
 import Image from 'next/image';
 import React from 'react';
 
 const ProjectTile = ({ project }: { project: Project }) => {
   const { title, description, technologies, link, imageUrl } = project;
-
+  const  {theme} = useTheme()
   return (
-    <div className="p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 h-full">
+    <div className="transition delay-150 duration-300 ease-in-out hover:-translate-y-2 p-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 h-full">
       <div className="bg-[var(--foreground)] rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
         <div className="w-full h-32 relative overflow-hidden rounded-t-xl">
           <Image
@@ -43,7 +44,7 @@ const ProjectTile = ({ project }: { project: Project }) => {
               alt={`${title} Link`}
               width={0}
               height={0}
-              className="absolute bottom-0 left-0 h-10 w-auto object-contain transition-transform hover:scale-105 invert"
+              className={`absolute bottom-0 left-0 h-10 w-auto object-contain transition-transform hover:scale-105 ${theme == 'light' ? 'invert': ''}`}
             />
           </div>
         </div>

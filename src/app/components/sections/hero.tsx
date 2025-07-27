@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useTypingEffect } from '@/app/hooks';
 import AnimatedBackground from '@/app/components/common/AnimatedBackground';
 import Image from 'next/image';
+import { useTheme } from '@/app/context/ThemeContext';
 
 type heroProps = {
   skills?: string[];
@@ -13,7 +14,8 @@ type heroProps = {
 const Hero = ({ skills, id }: heroProps) => {
   const [hasMounted, setHasMounted] = useState(false);
   const text = useTypingEffect(skills ?? [], 100, 60, 1000);
-
+  const { theme } = useTheme();
+  const cvLink = process.env.NEXT_PUBLIC_CV_LINK;
   useEffect(() => {
     setHasMounted(true);
   }, []);
@@ -25,7 +27,7 @@ const Hero = ({ skills, id }: heroProps) => {
       {/* Timeline */}
       <div className="flex flex-col absolute top-20 left-3 items-cente">
         <div className="w-5 h-5 bg-blue-500 rounded-full z-10"></div>
-        <div className="w-[2px] h-96 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+        <div className="ml-2 w-[2px] h-96 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
       </div>
 
       <main className="relative z-10 flex flex-col justify-center items-start px-15 py-16 gap-6 h-full">
@@ -48,15 +50,16 @@ const Hero = ({ skills, id }: heroProps) => {
         {/* Buttons */}
         <div className="inline-flex items-center gap-4 flex-wrap">
           <a
-            href="/files/Smith_Kashyap_Resume.pdf"
-            download
+            href={cvLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-4 py-2 text-sm sm:text-base bg-blue-600  rounded hover:bg-blue-700 transition-all"
           >
             📄 Download Resume
           </a>
 
           <a
-            href="mailto:smithkashyapdev@gmail.com"
+            href="#about"
             className="inline-block px-4 py-2 text-sm sm:text-base  rounded border border-transparent bg-black bg-clip-padding relative z-10
               before:content-[''] before:absolute before:inset-0 before:rounded before:z-[-1]
               before:bg-gradient-to-r before:from-purple-500 before:to-pink-500
@@ -73,7 +76,7 @@ const Hero = ({ skills, id }: heroProps) => {
           width={0}
           height={0}
           sizes="100vw"
-          className="w-full h-42 mt-4"
+          className={`w-full h-42 mt-4 ${theme == 'light' ? 'invert' : ''}`}
         />
 
         {/* Bottom Images */}

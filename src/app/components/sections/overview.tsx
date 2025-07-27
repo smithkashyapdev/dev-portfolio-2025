@@ -1,6 +1,8 @@
+"use client"
 import { SkillCategory } from '@/app/types/DevData';
 import Image from 'next/image';
 import React, { useCallback, useMemo } from 'react';
+import { useTheme } from '@/app/context/ThemeContext';
 
 type OverviewProps = {
   overview?: string;
@@ -10,6 +12,7 @@ type OverviewProps = {
 };
 
 const Overview = ({ overview, bulletPoints, skills, id }: OverviewProps) => {
+  const { theme } = useTheme()
   const categorizedIcons = useMemo(() => {
     const getIcons = (title: string) =>
       skills?.find((skill) => skill.title === title)?.skills?.map((s) => s.icon ?? '') ?? [];
@@ -40,13 +43,13 @@ const Overview = ({ overview, bulletPoints, skills, id }: OverviewProps) => {
               width={0}
               height={0}
               alt={`${title} Icon ${index + 1}`}
-              className="w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 object-contain invert"
+              className={`w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 object-contain ${theme == 'light' ? '': 'invert'}`}
             />
           ))}
         </section>
       </div>
     );
-  }, []);
+  }, [theme]);
 
   return (
     <div id={id} className="flex flex-col py-4 px-6">
@@ -61,13 +64,13 @@ const Overview = ({ overview, bulletPoints, skills, id }: OverviewProps) => {
           <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
             Key Highlights:
           </h3>
-          <ul className="list-disc list-inside text-lg  space-y-2">
+          <div className="space-y-2">
             {bulletPoints.map((point, index) => (
-              <li key={index} className="text-sm sm:text-lg">
+              <h4 key={index} className="text-sm sm:text-lg">
                 {point}
-              </li>
+              </h4>
             ))}
-          </ul>
+          </div>
         </div>
       ) : null}
 

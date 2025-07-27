@@ -5,11 +5,13 @@ import { useEffect, useState, useRef } from 'react';
 import { loadSlim } from '@tsparticles/slim';
 import { Container } from '@tsparticles/engine';
 import React from 'react';
+import { useTheme } from '@/app/context/ThemeContext';
 
 const AnimatedBackground = React.memo(function AnimatedBackground() {
   const [init, setInit] = useState(false);
   const initializedRef = useRef(false);
-
+  const { theme } = useTheme();
+  
   useEffect(() => {
     if (!initializedRef.current) {
       initParticlesEngine(async (engine) => {
@@ -31,19 +33,19 @@ const AnimatedBackground = React.memo(function AnimatedBackground() {
           particlesLoaded={particlesLoaded}
           className="w-full h-full"
           options={{
-            fullScreen: { enable: false }, // ✅ full screen bg
+            fullScreen: { enable: false },
             background: { color: 'transparent' },
             fpsLimit: 60,
             detectRetina: true,
             particles: {
               number: { value: 160, density: { enable: true } },
-              color: { value: '#ffffff' },
+              color: { value: theme == 'dark' ? '#f2f2f2' : '#000000' },
               links: {
                 enable: true,
-                color: '#3B82F6',
+                color: theme == 'dark' ? '#3B82F6' : '#000000',
                 distance: 150,
                 opacity: 0.7,
-                width: 1,
+                width: 2,
               },
               move: {
                 enable: true,

@@ -47,8 +47,9 @@ export const ContactForm = () => {
     };
 
     try {
+      const apiUrl = process.env.NEXT_PUBLIC_EMAIL_API ?? '';
       const res = await fetch(
-        'https://83qnqjb79e.execute-api.ap-south-1.amazonaws.com/Prod/portfolio-contact-api',
+        apiUrl,
         {
           method: 'POST',
           body: JSON.stringify(payload),
