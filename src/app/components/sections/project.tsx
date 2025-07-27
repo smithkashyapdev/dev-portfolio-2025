@@ -14,9 +14,9 @@ const ProjectPageComp = ({ projects, id }: PropType) => {
       id={id}
       className="flex flex-col min-h-screen mt-10 px-4 sm:px-6"
     >
-      <div className="flex flex-row gap-2">
-        <IconCard title="projects" isHovered={false} disableSrc="/icons/hash_disable.svg" />
-      </div>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-10">
+        Projects.
+      </h2>
 
       <div className="relative w-full overflow-x-auto overflow-y-hidden scroll-smooth mt-5 px-2 touch-pan-x scrollbar-hide">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 snap-x snap-mandatory">
