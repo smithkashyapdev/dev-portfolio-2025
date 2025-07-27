@@ -18,7 +18,7 @@ const ProjectPageComp = ({ projects, id }: PropType) => {
         Projects.
       </h2>
 
-      <div className="relative w-full overflow-x-auto overflow-y-hidden scroll-smooth mt-5 px-2 touch-pan-x scrollbar-hide">
+      <div className="relative w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 snap-x snap-mandatory">
           {projects.map((project, index) => (
             <div key={index}>
