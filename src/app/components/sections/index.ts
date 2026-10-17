@@ -3,3 +3,7 @@ export * from './about';
 export * from './project';
 export * from './overview';
 export * from './work-exp';
+export * from './services';
+export * from './astro-preview';
+export * from './system-design';
+export * from './reviews';

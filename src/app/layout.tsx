@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from './context/ThemeContext';
+import { WhatsAppButton, TopmateButton, PortfolioBot, VisitTracker } from './components/common';
 
 const geistFont = Geist({
   variable: '--font-geist',
@@ -22,7 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={geistFont.variable}>
       <body className={geistFont.variable}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <WhatsAppButton />
+          <TopmateButton />
+          <PortfolioBot />
+          <VisitTracker />
+        </ThemeProvider>
       </body>
     </html>
   );

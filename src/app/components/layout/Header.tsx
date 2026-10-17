@@ -15,7 +15,11 @@ const Header = ({ title }: headerProps) => {
     { title: '🧑‍💻 Home', link: '#home' },
     { title: '📝 Overview', link: '#overview' },
     { title: '📁 Projects', link: '#project' },
+    { title: '🧩 System Design', link: '#system-design' },
     { title: '💼 Work Experience', link: '#experience' },
+    { title: '💬 Guidance', link: '#services' },
+    { title: '🔮 Astro Preview', link: '#astro' },
+    { title: '⭐ Reviews', link: '#reviews' },
     { title: '👤 About Me', link: '#about' },
   ];
 
