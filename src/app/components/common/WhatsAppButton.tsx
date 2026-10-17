@@ -30,7 +30,7 @@ export function WhatsAppButton({
       rel="noopener noreferrer"
       aria-label="Astro Guidance on WhatsApp"
       title="Astro Guidance on WhatsApp"
-      className="group fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-105 hover:bg-[#1ebe5d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
+      className="group fixed bottom-5 right-4 z-[9999] flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lg shadow-black/20 transition-all duration-300 hover:scale-105 hover:bg-[#1ebe5d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
     >
       <span className="relative flex h-6 w-6 items-center justify-center">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/40 opacity-75" />

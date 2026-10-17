@@ -23,7 +23,7 @@ const Hero = ({ skills, id, moto }: heroProps) => {
   }, []);
 
   return (
-    <div id={id} className="relative w-full min-h-screen overflow-hidden">
+    <div id={id} className="relative w-full min-h-screen overflow-x-hidden overflow-y-hidden">
       <AnimatedBackground />
 
       {/* Ambient glow */}
@@ -36,9 +36,9 @@ const Hero = ({ skills, id, moto }: heroProps) => {
         <div className="ml-2 w-[2px] h-96 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500"></div>
       </div>
 
-      <main className="relative z-10 flex flex-col justify-center items-start px-15 py-16 gap-6 h-full">
-        <span className="eyebrow animate-fadeInUp">Senior Software Engineer · Technical Lead · 10+ yrs</span>
-        <h1 className="animate-fadeInUp text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold">
+      <main className="relative z-10 flex flex-col justify-center items-start gap-5 h-full px-5 py-16 sm:px-10 lg:px-16">
+        <span className="eyebrow animate-fadeInUp text-[10px] sm:text-xs">Senior Software Engineer · Technical Lead · 10+ yrs</span>
+        <h1 className="animate-fadeInUp text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold">
           Hi, I&apos;m
           <span className="gradient-text font-extrabold block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
             {' '}Smith Kashyap
@@ -107,7 +107,7 @@ const Hero = ({ skills, id, moto }: heroProps) => {
         </motion.figure>
 
         {/* Bottom Images */}
-        <div className="relative h-44 mt-8 w-full">
+        <div className="relative mt-8 hidden h-44 w-full sm:block">
           <Image
             src="/component-icon/icon_portfolio_1.svg"
             alt="Portfolio Icon"
@@ -119,7 +119,7 @@ const Hero = ({ skills, id, moto }: heroProps) => {
             alt="Developer Icon"
             width={300}
             height={100}
-            className="absolute top-0 right-0"
+            className="absolute top-0 right-0 max-w-[60%] object-contain"
           />
           <Image
             src="/icons/ic_dot_dev.svg"

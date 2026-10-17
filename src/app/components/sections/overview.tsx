@@ -59,7 +59,7 @@ const Overview = ({ overview, bulletPoints, skills, id }: OverviewProps) => {
   }, [theme]);
 
   return (
-    <div id={id} className="relative mx-auto max-w-6xl px-6 py-20">
+    <div id={id} className="relative mx-auto max-w-6xl overflow-x-hidden px-5 py-20 sm:px-6">
       <div className="glow-blob left-0 top-10 h-64 w-64 bg-indigo-500" />
 
       <p className="eyebrow mb-3">Who I am</p>

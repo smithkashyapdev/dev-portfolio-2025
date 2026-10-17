@@ -18,7 +18,7 @@ function bookingHref(service: Service, priceLabel: string, amount: number) {
 
 const ServicesComp = ({ services, id }: ServicesProps) => {
   return (
-    <section id={id} className="relative mx-auto max-w-6xl px-6 py-20">
+    <section id={id} className="relative mx-auto max-w-6xl overflow-x-hidden px-5 py-20 sm:px-6">
       <motion.div
         className="glow-blob right-10 top-10 h-72 w-72 bg-emerald-400"
         animate={{ scale: [1, 1.15, 1], opacity: [0.18, 0.3, 0.18] }}

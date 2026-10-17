@@ -66,7 +66,7 @@ export function PortfolioBot() {
         title="Ask Smith's AI"
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 left-6 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-3 text-white shadow-lg shadow-black/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+        className="fixed bottom-5 left-4 z-[9999] flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 px-4 py-3 text-white shadow-lg shadow-black/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
       >
         <span className="relative flex h-6 w-6 items-center justify-center">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/40 opacity-75" />
@@ -85,7 +85,7 @@ export function PortfolioBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ type: 'spring', stiffness: 260, damping: 24 }}
-            className="fixed bottom-24 left-6 z-50 flex h-[28rem] w-[min(92vw,22rem)] flex-col overflow-hidden rounded-2xl shadow-2xl"
+            className="fixed bottom-24 left-4 z-[9999] flex h-[28rem] w-[min(92vw,22rem)] flex-col overflow-hidden rounded-2xl shadow-2xl"
             style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
           >
             {/* Header */}

@@ -26,7 +26,7 @@ export function TopmateButton({ url = DEFAULT_URL }: TopmateButtonProps) {
 
   return (
     <div
-      className="fixed bottom-24 right-6 z-50 flex flex-col items-end"
+      className="fixed bottom-24 right-4 z-[9999] flex flex-col items-end"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >

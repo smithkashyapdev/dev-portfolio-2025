@@ -16,7 +16,7 @@ const ProjectPageComp = ({ projects, id }: PropType) => {
   return (
     <section
       id={id}
-      className="relative mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-20"
+      className="relative mx-auto flex min-h-screen max-w-6xl flex-col overflow-x-hidden px-5 py-20 sm:px-6"
     >
       <motion.div
         className="glow-blob right-10 top-10 h-72 w-72 bg-indigo-500"

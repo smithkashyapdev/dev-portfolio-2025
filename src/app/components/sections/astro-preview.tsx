@@ -84,7 +84,7 @@ const AstroPreviewComp = ({ id }: Props) => {
   };
 
   return (
-    <section id={id} className="relative mx-auto max-w-6xl px-6 py-20">
+    <section id={id} className="relative mx-auto max-w-6xl overflow-x-hidden px-5 py-20 sm:px-6">
       <div className="glow-blob left-10 top-10 h-72 w-72 bg-fuchsia-500" />
 
       <motion.div

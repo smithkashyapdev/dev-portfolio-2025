@@ -9,7 +9,7 @@ type AboutPageProps = {
 const AboutPage = ({ data, id }: AboutPageProps) => {
   const { name, title, highlights, socialLinks, mobile } = data;
   return (
-    <div className="relative mx-auto max-w-6xl px-6 py-20">
+    <div className="relative mx-auto max-w-6xl overflow-x-hidden px-5 py-20 sm:px-6">
       <div className="glow-blob left-1/3 top-0 h-72 w-72 bg-violet-500" />
       <p className="eyebrow mb-3 text-center">Get in touch</p>
       <h2 className="mb-12 text-center text-3xl font-extrabold sm:text-4xl md:text-5xl">
