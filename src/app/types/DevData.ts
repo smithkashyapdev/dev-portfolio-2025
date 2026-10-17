@@ -25,14 +25,41 @@ type About = {
   socialLinks: socialLink[];
 };
 
+type ProjectStat = {
+  label: string; // e.g., "Rating", "Downloads"
+  value: string; // e.g., "4.1★", "1Cr+"
+};
 type Project = {
   title: string;
   description: string;
   technologies: string[];
   link: string;
   imageUrl: string;
+  stats?: ProjectStat[]; // Optional highlight metrics (e.g., store stats)
 };
 type GitHubDevProjct = Pick<Project, 'title' | 'description' | 'technologies' | 'link'>;
+
+type ReviewCategory = 'career' | 'astrology';
+type Review = {
+  name: string;
+  location: string;
+  rating: number; // 1–5
+  text: string;
+  category: ReviewCategory;
+};
+
+type ServicePrice = {
+  label: string; // e.g. "30 min", "1 hour"
+  amount: number; // in INR
+};
+type Service = {
+  title: string;
+  category: ReviewCategory;
+  description: string;
+  prices: ServicePrice[];
+  features: string[];
+  highlight?: boolean; // visually feature this card
+};
 type workExperience = {
   company: string;
   icon: string; // URL or path to the company logo
@@ -54,6 +81,8 @@ type DevData = {
   languages: language[];
   skills: SkillCategory[];
   workExperience: workExperience[];
+  reviews: Review[];
+  services: Service[];
 };
 
 export type {
@@ -67,4 +96,9 @@ export type {
   GitHubDevProjct,
   LevelType,
   workExperience,
+  ProjectStat,
+  Review,
+  ReviewCategory,
+  Service,
+  ServicePrice,
 };

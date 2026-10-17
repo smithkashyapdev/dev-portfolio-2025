@@ -2,24 +2,168 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #FAF5F5;
-  --primary: #c778dd;
-  --text: #000000;
+  --background: #f8fafc;
+  --foreground: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f1f5f9;
+  --border: #e2e8f0;
+  --primary: #6366f1;
+  --primary-2: #8b5cf6;
+  --accent: #ec4899;
+  --text: #0f172a;
+  --text-muted: #475569;
   --font-geist: 'Geist', sans-serif;
 }
 
 .dark {
-  --background: #000000;
-  --foreground: #121212;
-  --primary: #8844bb;
-  --text: #ffffff;
+  --background: #05060a;
+  --foreground: #0d0f14;
+  --surface: #0f1117;
+  --surface-muted: #15181f;
+  --border: #1f2430;
+  --primary: #818cf8;
+  --primary-2: #a78bfa;
+  --accent: #f472b6;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
   --font-geist: 'Geist', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+html,
 body {
-  transition: background-color 0.5s ease, color 0.5s ease;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
   background: var(--background);
   color: var(--text);
   font-family: var(--font-geist);
+}
+
+/* ---- Modern design utilities ---- */
+
+/* Gradient text used for headings and accents */
+.gradient-text {
+  background-image: linear-gradient(
+    120deg,
+    var(--primary),
+    var(--primary-2),
+    var(--accent)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass / frosted card */
+.glass-card {
+  background: color-mix(in srgb, var(--surface) 75%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Animated gradient border wrapper */
+.gradient-border {
+  position: relative;
+  border-radius: 1rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-2),
+    var(--accent)
+  );
+  padding: 1px;
+}
+
+/* Soft ambient glow blobs for section backgrounds */
+.glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle lift on hover */
+.lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+.lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.18);
+}
+
+/* Section eyebrow label */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease both;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-fadeInUp,
+  .animate-floaty {
+    animation: none;
+  }
+}
+
+/* Make native date/time picker indicators visible in both themes */
+.astro-datetime::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.8;
+  filter: invert(0.5);
+}
+.dark .astro-datetime::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+.astro-datetime::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
 }

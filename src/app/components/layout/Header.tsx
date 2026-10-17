@@ -15,7 +15,11 @@ const Header = ({ title }: headerProps) => {
     { title: '🧑‍💻 Home', link: '#home' },
     { title: '📝 Overview', link: '#overview' },
     { title: '📁 Projects', link: '#project' },
-    { title: '💼 Work Experience', link: '#experience' },
+    { title: '🧩 System Design', link: '#system-design' },
+    { title: '💼 Work Experience', link: '#experieance' },
+    { title: '💬 Guidance', link: '#services' },
+    { title: '🔮 Astro Preview', link: '#astro' },
+    { title: '⭐ Reviews', link: '#reviews' },
     { title: '👤 About Me', link: '#about' },
   ];
 
@@ -39,12 +43,12 @@ const Header = ({ title }: headerProps) => {
           <h3>{title}</h3>
         </div>
 
-        <div className="hidden sm:flex flex-row items-center gap-4">
+        <div className="hidden lg:flex flex-row items-center gap-2 xl:gap-3">
           {headerItems.map(({ title, link }, index) => (
             <a
               href={link}
               key={index}
-              className={`inline-block md:px-4 md:py-2 sm:px-2 sm:py-2 text-sm  rounded transition ${theme == 'light' ? 'text-white bg-black hover:bg-blue-700' : 'text-black bg-white hover:bg-blue-700'}`}
+              className={`inline-block whitespace-nowrap px-2.5 py-2 text-xs xl:text-sm rounded transition ${theme == 'light' ? 'text-white bg-black hover:bg-blue-700' : 'text-black bg-white hover:bg-blue-700'}`}
             >
               {title}
             </a>
@@ -52,10 +56,13 @@ const Header = ({ title }: headerProps) => {
           <ThemeToggle />
         </div>
 
-        <div className="block sm:hidden" onClick={openDrawer}>
-          <Image src="/icons/ic_burger.svg" alt="Burger Icon" width={0}
-            height={0}
-            className={`w-7 h-7 ${theme == 'light' ? 'invert' : ''}`} />
+        <div className="flex items-center gap-3 lg:hidden">
+          <ThemeToggle />
+          <button aria-label="Open menu" onClick={openDrawer}>
+            <Image src="/icons/ic_burger.svg" alt="Burger Icon" width={0}
+              height={0}
+              className={`w-7 h-7 ${theme == 'light' ? 'invert' : ''}`} />
+          </button>
         </div>
       </nav>
 

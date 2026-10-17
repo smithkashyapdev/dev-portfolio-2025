@@ -33,18 +33,25 @@ const Overview = ({ overview, bulletPoints, skills, id }: OverviewProps) => {
     if (icons.length === 0) return null;
 
     return (
-      <div key={title} className="flex flex-col items-center text-center animate-fadeInUp">
-        <h3 className="text-xl sm:text-2xl font-bold text-blue-500 mb-4">{title}</h3>
-        <section className="flex flex-wrap justify-center gap-4">
+      <div key={title} className="glass-card animate-fadeInUp p-6">
+        <h3 className="mb-5 text-lg font-bold sm:text-xl">
+          <span className="gradient-text">{title}</span>
+        </h3>
+        <section className="flex flex-wrap gap-3">
           {icons.map((icon, index) => (
-            <Image
+            <span
               key={index}
-              src={icon}
-              width={0}
-              height={0}
-              alt={`${title} Icon ${index + 1}`}
-              className={`w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 object-contain ${theme == 'light' ? '': 'invert'}`}
-            />
+              className="lift flex h-12 w-12 items-center justify-center rounded-xl sm:h-14 sm:w-14"
+              style={{ background: 'var(--surface-muted)', border: '1px solid var(--border)' }}
+            >
+              <Image
+                src={icon}
+                width={0}
+                height={0}
+                alt={`${title} Icon ${index + 1}`}
+                className={`h-7 w-7 object-contain sm:h-8 sm:w-8 ${theme == 'light' ? '' : 'invert'}`}
+              />
+            </span>
           ))}
         </section>
       </div>
@@ -52,29 +59,39 @@ const Overview = ({ overview, bulletPoints, skills, id }: OverviewProps) => {
   }, [theme]);
 
   return (
-    <div id={id} className="flex flex-col py-4 px-6">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4">
-        Overview.
+    <div id={id} className="relative mx-auto max-w-6xl overflow-x-hidden px-5 py-20 sm:px-6">
+      <div className="glow-blob left-0 top-10 h-64 w-64 bg-indigo-500" />
+
+      <p className="eyebrow mb-3">Who I am</p>
+      <h2 className="mb-6 text-3xl font-extrabold sm:text-4xl md:text-5xl">
+        <span className="gradient-text">Overview</span>
       </h2>
 
-      {overview && <p className="text-sm sm:text-lg mb-6">{overview}</p>}
+      {overview && (
+        <p className="max-w-3xl text-base leading-relaxed sm:text-lg"
+          style={{ color: 'var(--text-muted)' }}>
+          {overview}
+        </p>
+      )}
 
       {bulletPoints?.length ? (
-        <div className="mt-4">
-          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-            Key Highlights:
-          </h3>
-          <div className="space-y-2">
+        <div className="mt-12">
+          <h3 className="mb-6 text-xl font-bold sm:text-2xl">Key Highlights</h3>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {bulletPoints.map((point, index) => (
-              <h4 key={index} className="text-sm sm:text-lg">
+              <div
+                key={index}
+                className="glass-card lift animate-fadeInUp p-4 text-sm sm:text-base"
+                style={{ animationDelay: `${Math.min(index * 40, 400)}ms` }}
+              >
                 {point}
-              </h4>
+              </div>
             ))}
           </div>
         </div>
       ) : null}
 
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2">
         {skillCardView('Languages & Databases', categorizedIcons.languages)}
         {skillCardView('Frameworks & Libraries', categorizedIcons.frameworks)}
         {skillCardView('Tools & DevOps', categorizedIcons.tools)}

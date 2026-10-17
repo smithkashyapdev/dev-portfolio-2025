@@ -8,7 +8,6 @@ import React, {
   useState,
 } from 'react';
 import Image from 'next/image';
-import { IconCard } from '../common';
 import ThemeToggle from '../common/ThemeToggle';
 import { useTheme } from '@/app/context/ThemeContext';
 
@@ -51,7 +50,11 @@ const Drawer = forwardRef<DrawerRef, DrawerProps>(({ title }, ref) => {
     { title: '🧑‍💻 Home', link: '#home' },
     { title: '📝 Overview', link: '#overview' },
     { title: '📁 Projects', link: '#project' },
-    { title: '💼 Work Experience', link: '#experience' },
+    { title: '🧩 System Design', link: '#system-design' },
+    { title: '💼 Work Experience', link: '#experieance' },
+    { title: '💬 Guidance', link: '#services' },
+    { title: '🔮 Astro Preview', link: '#astro' },
+    { title: '⭐ Reviews', link: '#reviews' },
     { title: '👤 About Me', link: '#about' },
   ];
 
@@ -107,21 +110,18 @@ const Drawer = forwardRef<DrawerRef, DrawerProps>(({ title }, ref) => {
         </div>
       </div>
 
-      {/* Grid items */}
-      <div className="grid grid-cols-2 grid-rows-3 gap-4 mt-6 h-full">
-        {headerItems.map(({ title, link }, index) => {
-          const isLast = index === headerItems.length - 1;
-          return (
-            <div
-              key={index}
-              className={`${
-                isLast ? 'col-span-2 h-[30%]' : ''
-              } overflow-hidden`}
-            >
-              <IconCard title={title} onClick={() => handleItemClick(link)} />
-            </div>
-          );
-        })}
+      {/* Nav items */}
+      <div className="mt-6 flex flex-col gap-3 overflow-y-auto pb-6">
+        {headerItems.map(({ title, link }, index) => (
+          <button
+            key={index}
+            onClick={() => handleItemClick(link)}
+            className="w-full rounded-xl px-4 py-3 text-left text-base font-semibold transition-colors"
+            style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
+          >
+            {title}
+          </button>
+        ))}
       </div>
     </div>
   );
